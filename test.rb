@@ -19,17 +19,21 @@ def caesar_cipher(input_string, shift_factor)
   #the unpack means it converts the string into ASCII values
   positions = input_string.unpack('C*')
 
+=begin
   puts "This should be the ASCII values"
   puts positions
+=end
 
   #shifted positions is the loop
   #for each position in the map, do the following
   #pos is the current value being worked on
+  
+  #the .map [1, 2, 3].map { |n| n * n } #=> [1, 4, 9]
+  #it makes an array of the shifted positions created by the original positions
   shifted_positions = positions.map do |pos|
 
   #using switch statements
     case pos
-
 
     #A-Z inclusive, a-z inclusive means include everything
     #this checks to see if the input is a letter
@@ -49,9 +53,11 @@ def caesar_cipher(input_string, shift_factor)
       #end of if statement
       end
       
-      #new       
+      #this is the result of the shifting       
       pos = shifted
     else
+      
+      #if it is not a letter, it stays the same
     pos # ignore non-alphabet chars
 
     end
@@ -60,10 +66,13 @@ def caesar_cipher(input_string, shift_factor)
     puts pos
 =end
   end
+  
+  #the resulting string is 
+  #i think it puts the ASCII values 
   result_string = shifted_positions.pack('C*')
   puts result_string
 end
-
+      
 puts "Input string:"
 string_to_encrypt = gets.chomp
 puts "Shift factor:"
